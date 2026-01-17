@@ -9,6 +9,15 @@ local window = library:AddWindow("Henne Kill Farm", {
 })
 
 local Player = game:GetService("Players").LocalPlayer
+-- Auto Anti AFK (Runs on Script Load)
+task.spawn(function()
+    pcall(function()
+        loadstring(game:HttpGet(
+            "https://raw.githubusercontent.com/evxncodes/mainroblox/main/anti-afk",
+            true
+        ))()
+    end)
+end)
 
 local KillingTab = window:AddTab("Killing")
 KillingTab:Show()
@@ -788,4 +797,5 @@ local showpetsswitch = KillingTab:AddSwitch("Show Pets", function(bool)
         player.hidePets.Value = bool
     end
 end)
+
 showpetsswitch:Set(false)
